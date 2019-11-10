@@ -41,8 +41,8 @@
 <script>
 function myFunction() {
   var txt;
-  if (confirm("create Country!")) {
-    txt = "Tu sukursi naują šalį!";
+  if (confirm("yuo will create City!")) {
+    txt = "Tu sukursi naują miesta!";
   } else {
     txt = "You pressed Cancel!";
   }

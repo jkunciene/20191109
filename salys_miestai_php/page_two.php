@@ -26,8 +26,9 @@
         <td bgcolor="#CCCCCC"><strong>Country</strong></td>
         <td bgcolor="#CCCCCC"><strong>Area</strong></td><td bgcolor="#CCCCCC"><strong>Population</strong></td><td bgcolor="#CCCCCC"><strong>Code</strong></td><td bgcolor="#CCCCCC"><strong>Update</strong></td><td bgcolor="#CCCCCC"><strong>Delete</strong></td></tr>
     <?php
-    $salys = getCountry1();
+    $salys = getCountry2();
     $salis = mysqli_fetch_assoc($salys);
+
       for($i=1; $i < HOME_NUMBER_OF_ARTICLES; $i++){
       while($salis == true){
         $trans = $salis[id];
@@ -48,5 +49,5 @@
     </table>
 </div>
 </div>
-<a  href="page_two.php" class="btn btn-outline-dark w-50 mt-5">Next Page</a>
+<a  href="page_three.php" class="btn btn-outline-dark w-50 mt-5">Next Page</a>
 </div>

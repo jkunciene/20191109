@@ -18,10 +18,10 @@
             $rezultataiArray = mysqli_fetch_assoc($rezultataiOBJ);
             return $rezultataiArray;
         }
-// IDEA: gauna pilną saliu sąrašą
-        function getCountry($kiek = 100) {
+// IDEA: gauna pirmam psl saliu sąrašą
+        function getCountry1() {
             $mano_sql_tekstas = "SELECT * FROM countrytable
-                                          LIMIT $kiek";
+                                          LIMIT 10 OFFSET 0";
             $adminAtsakymai = mysqli_query( getPrisijungimas() , $mano_sql_tekstas);
                     if ( $adminAtsakymai ) {
                  return $adminAtsakymai;
@@ -29,6 +29,17 @@
                 return NULL; //
             }
         }
+// IDEA: gauna pirmam psl saliu sąrašą
+                function getCountry2() {
+                    $mano_sql_tekstas = "SELECT * FROM countrytable
+                                                  LIMIT 10 OFFSET 10";
+                    $adminAtsakymai = mysqli_query( getPrisijungimas() , $mano_sql_tekstas);
+                            if ( $adminAtsakymai ) {
+                         return $adminAtsakymai;
+                    } else {
+                        return NULL; //
+                    }
+                }
 // IDEA: funkcija skirta sukurti, irasyti Sali i DB
         function createCountry($country, $area, $population, $code){
         $country_apdorotas =  mysqli_real_escape_string (getPrisijungimas(), $country );
@@ -89,7 +100,7 @@ function createCity($city, $cityarea, $citypopulation, $citycode, $idcountry){
         $citycode_apdorotas =  mysqli_real_escape_string (getPrisijungimas(), $citycode );
         $idcountry_apdorotas =  mysqli_real_escape_string (getPrisijungimas(), $idcountry );
         $mano_sql_tekstas = "INSERT INTO citytable
-                                    VALUES(NULL, '$country_apdorotas', '$cityarea_apdorotas', '$citypopulation_apdorotas', '$citycode_apdorotas', NOW(),'$idcountry_apdorotas');";
+                                    VALUES(NULL, '$city_apdorotas', '$cityarea_apdorotas', '$citypopulation_apdorotas', '$citycode_apdorotas', NOW(),'$idcountry_apdorotas');";
         $arPavyko = mysqli_query(   getPrisijungimas() , $mano_sql_tekstas);
         if ( !$arPavyko ) {
              echo "EROROR: nepavyko pateikti klausimo." . mysqli_error( getPrisijungimas() );
