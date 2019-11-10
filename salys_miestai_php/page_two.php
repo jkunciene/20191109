@@ -14,9 +14,20 @@
                 </form>
         </nav>
 </header>
-<div class="row mb-5 mt-5">
+<div class="row mb-3 mt-3">
   <div class="col">
     <?php echo "<a type='button' class='btn btn-warning' href= 'country_create_forma.php?nr=$i'>".Yuo_can_create_new_Country ."</a>";?>
+  </div>
+</div>
+<div class="row">
+  <div class="col-4">
+    <a  class = "btn btn-info" href="rikiuotas.php">A - Z</a>
+  </div>
+  <div class="col-4">
+    <a  class = "btn btn-info" href="desc.php">Z - A</a>
+  </div>
+  <div class="col-4 btn">
+    <a class = "btn btn-info" href="naujausi.php">Naujausi</a>
   </div>
 </div>
 <div class="row">
@@ -49,5 +60,5 @@
     </table>
 </div>
 </div>
-<a  href="page_three.php" class="btn btn-outline-dark w-50 mt-5">Next Page</a>
+<a  href="index.php" class="btn btn-outline-dark w-50 mt-3">Back to Home Page</a>
 </div>

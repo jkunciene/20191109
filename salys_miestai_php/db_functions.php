@@ -40,6 +40,38 @@
                         return NULL; //
                     }
                 }
+// IDEA: funkcija skirta saliu rikiavimui pagal iraso data
+function getCountryNew() {
+    $mano_sql_tekstas = "SELECT * FROM countrytable
+                                  ORDER BY data DESC";
+    $adminAtsakymai = mysqli_query( getPrisijungimas() , $mano_sql_tekstas);
+            if ( $adminAtsakymai ) {
+         return $adminAtsakymai;
+    } else {
+        return NULL; //
+    }
+}
+// IDEA: funkcija saliu rikiavimui pagal pavadinima
+function getCountryAZ() {
+    $mano_sql_tekstas = "SELECT * FROM countrytable
+                                  ORDER BY coutry ASC";
+    $adminAtsakymai = mysqli_query( getPrisijungimas() , $mano_sql_tekstas);
+            if ( $adminAtsakymai ) {
+         return $adminAtsakymai;
+    } else {
+        return NULL; //
+    }
+}
+function getCountryZA() {
+    $mano_sql_tekstas = "SELECT * FROM countrytable
+                                  ORDER BY coutry DESC";
+    $adminAtsakymai = mysqli_query( getPrisijungimas() , $mano_sql_tekstas);
+            if ( $adminAtsakymai ) {
+         return $adminAtsakymai;
+    } else {
+        return NULL; //
+    }
+}
 // IDEA: funkcija skirta sukurti, irasyti Sali i DB
         function createCountry($country, $area, $population, $code){
         $country_apdorotas =  mysqli_real_escape_string (getPrisijungimas(), $country );
@@ -143,3 +175,13 @@ $idcountry_apdorotas =  mysqli_real_escape_string (getPrisijungimas(), $idcountr
                                 WHERE (`coutry` LIKE '%$query_apdorotas%') ";
         $rezultataiOBJ = mysqli_query(getPrisijungimas(),  $mano_sql_tekstas);
         return $rezultataiOBJ;  }
+
+
+  function getPaieskaCity(){
+          $query = $_GET['fraze'];
+          print_r("<h4>Jūsų ieškoma frazė:   ".$query."</h4>");
+          $query_apdorotas = mysqli_real_escape_string (getPrisijungimas(), $query );
+          $mano_sql_tekstas = "SELECT * FROM citytable
+                                      WHERE (`city` LIKE '%$query_apdorotas%') ";
+          $rezultataiOBJ = mysqli_query(getPrisijungimas(),  $mano_sql_tekstas);
+          return $rezultataiOBJ;  }

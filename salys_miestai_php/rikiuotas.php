@@ -19,15 +19,12 @@
     <?php echo "<a type='button' class='btn btn-warning' href= 'country_create_forma.php?nr=$i'>".Yuo_can_create_new_Country ."</a>";?>
   </div>
 </div>
-<div class="row">
-  <div class="col-4">
-    <a  class = "btn btn-info" href="rikiuotas.php">A - Z</a>
-  </div>
+<div class="row m-1">
   <div class="col-4">
     <a  class = "btn btn-info" href="desc.php">Z - A</a>
   </div>
-  <div class="col-4 btn">
-    <a class = "btn btn-info" href="naujausi.php">Naujausi</a>
+  <div class="col-4">
+    <a  class = "btn btn-info" href="naujausi.php">Naujausi</a>
   </div>
 </div>
 <div class="row">
@@ -37,7 +34,7 @@
         <td bgcolor="#CCCCCC"><strong>Country</strong></td>
         <td bgcolor="#CCCCCC"><strong>Area</strong></td><td bgcolor="#CCCCCC"><strong>Population</strong></td><td bgcolor="#CCCCCC"><strong>Code</strong></td><td bgcolor="#CCCCCC"><strong>Update</strong></td><td bgcolor="#CCCCCC"><strong>Delete</strong></td></tr>
     <?php
-    $salys = getCountry1();
+    $salys = getCountryAZ();
     $salis = mysqli_fetch_assoc($salys);
       for($i=1; $i < HOME_NUMBER_OF_ARTICLES; $i++){
       while($salis == true){
@@ -47,7 +44,7 @@
                 <td><? echo "<a  class='card-title h6' href= 'city.php?nr=$trans'>".$salis['coutry']."</a>"; ?></td>
                 <td><? echo $salis['area']; ?></td>
                 <td><? echo $salis['population']; ?></td>
-                <td><? echo $salis['code']; ?></td>
+                <td><? echo $salis['code']; ?></td>                
                 <td><? echo "<a class='card-link' href= 'country_update_forma.php?nr=$trans'>".Update."</a>"; ?></td>
                 <td><? echo "<a class='card-link' href= 'countrydelete.php?nr=$trans'>".Delete."</a>"; ?></td>
                 </tr>
@@ -59,5 +56,5 @@
     </table>
 </div>
 </div>
-<a  href="page_two.php" class="btn btn-outline-dark w-50 mt-3">Next Page</a>
+<a  href="index.php" class="btn btn-outline-dark w-50 mt-3">Back to Home Page</a>
 </div>
