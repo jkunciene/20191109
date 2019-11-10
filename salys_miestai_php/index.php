@@ -14,26 +14,35 @@
                 </form>
         </nav>
 </header>
-<div class="row text-center">
+<div class="row mb-5 mt-5">
   <div class="col">
     <?php echo "<a type='button' class='btn btn-warning' href= 'country_create_forma.php?nr=$i'>".Yuo_can_create_new_Country ."</a>";?>
   </div>
 </div>
-        <div class="card" style="width: 18rem;">
-          <div class="card-body  text-center">
-            <?php
-                for ($i=1; $i < HOME_NUMBER_OF_ARTICLES; $i++) {
-                $laikinas = getCountry_ID( $i );
-                  if($laikinas == true){
-                        echo "<a  class='card-title h6' href= 'city.php?nr=$i'>"."Country  ". $laikinas['coutry']."</a>";
-                        echo "<h6 class='card-subtitle mb-2 text-muted'>"."Area  ".$laikinas['area']."</h6>";
-                        echo "<p class='card-text'>"."Population  ".$laikinas['population']."</p>";
-                        echo "<p class='card-text'>"."Code  ".$laikinas['code']."</p>";
-                        echo "<a class='card-link' href= 'country_update_forma.php?nr=$i'>".Update."</a>";
-                        echo "<a class='card-link' href= 'countrydelete.php?nr=$i'>".Delete."</a>";
-                        echo "<hr />";}
-                        }
-             ?>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-12">
+    <table border="1" cellpadding="4">
+    <tr>
+        <td bgcolor="#CCCCCC"><strong>Country</strong></td>
+        <td bgcolor="#CCCCCC"><strong>Area</strong></td><td bgcolor="#CCCCCC"><strong>Population</strong></td><td bgcolor="#CCCCCC"><strong>Code</strong></td><td bgcolor="#CCCCCC"><strong>Update</strong></td><td bgcolor="#CCCCCC"><strong>Delete</strong></td></tr>
+    <?php
+    for ($i=1; $i < HOME_NUMBER_OF_ARTICLES; $i++) {
+    $laikinas = getCountry_ID( $i );
+      if($laikinas == true){
+    ?>
+                <tr>
+                <td><? echo "<a  class='card-title h6' href= 'city.php?nr=$i'>".$laikinas['coutry']."</a>"; ?></td>
+                <td><? echo $laikinas['area']; ?></td>
+                <td><? echo $laikinas['population']; ?></td>
+                <td><? echo $laikinas['code']; ?></td>
+                <td><? echo "<a class='card-link' href= 'country_update_forma.php?nr=$i'>".Update."</a>"; ?></td>
+                <td><? echo "<a class='card-link' href= 'countrydelete.php?nr=$i'>".Delete."</a>"; ?></td>
+                </tr>
+    <?php
+    }
+    };
+    ?>
+    </table>
+</div>
+</div>
 </div>
